@@ -10,9 +10,16 @@ export default new Router({
             component: components.Home
         },
 
-        // TODO /employees route
-        
-        // TODO /laptops route
+        // employees route
+        {
+            path: '/employees',
+            component: components.EmployeeList
+        },
+        //laptops route
+        {
+            path: '/laptops',
+            component: components.LaptopList
+        },
 
         // TODO /employee/:id route 
 
