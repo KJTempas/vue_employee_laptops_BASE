@@ -4,6 +4,7 @@
     "logging": true,
     "dialect": "sqlite"
   },
+
   "test": {
     "username": "root",
     "password": null,
@@ -15,4 +16,5 @@
     "use_env_variable": "DATABASE_URL",
     "dialect": "postgres"
   }
+
 }
