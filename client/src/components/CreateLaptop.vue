@@ -4,8 +4,11 @@
 
     <h2>Create new laptop</h2>
 
-    <!-- TODO create LaptopForm component, 
+    <!-- create LaptopForm component, 
     provide slot data to set button text  -->
+    <LaptopForm v-on:laptopFormSubmit = "laptopFormSubmit">
+        Create
+    </LaptopForm>
 
 </div>
 </template>
