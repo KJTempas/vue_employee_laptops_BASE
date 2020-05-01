@@ -7,7 +7,7 @@
     <router-link to="/create_laptop">
     <button class="btn btn-secondary mt-2 mb-2">Create new laptop</button>
     </router-link>
-    
+
   <!--  laptop table -->
   <table class="table table-hover">
     <tr>
@@ -27,7 +27,10 @@
       <td>
         todo link to Employee</td>
         <td>
-          todo edit laptop</td>
+          <router-link :to="{ name: 'laptop', params: { id: laptop.id } }">
+            <img src="@/assets/edit.png">
+          </router-link>
+          </td>
     </tr>
     </table>
 

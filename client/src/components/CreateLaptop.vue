@@ -23,10 +23,28 @@ export default {
         LaptopForm
     },
     methods:{
-        // TODO handle form submit
-        // TODO handle cancel 
+        laptopFormSubmit(laptop) {
+            //laptop service sends a message to API server to create new laptop
+            this.$services.laptops.addLaptop(laptop).then( data => {
+                //router navigates to laptop list
+                this.$router.push('/laptops')
+            }).catch( err => { //400 error means it's the client's fault
+                if (err.response.status == 400) {  //display specific error message
+                    alert('Error creating laptop because ' + err.response.data)
+                } else {
+                    alert('Error creating laptop.') 
+                }
+                
+            })
+        },
+        cancel() {
+            this.$router.push('/laptops')
+        }
+        }
     }
-}
+ 
+    
+
 
 </script>
 

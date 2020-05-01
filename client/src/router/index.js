@@ -24,9 +24,12 @@ export default new Router({
             name: 'employee',
             component: components.Employee
         },
-         
+         { //route to navigate to the edit page, laptop component by id
+             path: '/laptop/:id',
+             name: 'laptop',
+            component: components.Laptop
+         },
 
-        // TODO /laptop/:id route 
         {
             path: '/create_employee',
             component: components.CreateEmployee
