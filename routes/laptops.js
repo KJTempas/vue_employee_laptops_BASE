@@ -3,7 +3,7 @@ var Laptop = require('../models').Laptop
 var Sequelize = require('sequelize')
 
 var router = express.Router() 
-
+//these are all API route handlers
 router.get('/', function(req, res, next){
     Laptop.findAll({order: ['serialNumber']}, {where: req.query}).then( laptops => {
         return res.json(laptops)
@@ -60,6 +60,24 @@ router.delete('/:id', function(req, res, next){
     Laptop.destroy({where: {id: req.params.id}}).then( rowsModified => {
         return res.send('ok')
     }).catch( err => next(err) )
+})
+
+router.patch('/:id/employee', function(req, res, next){
+    Laptop.update(req.body, {where: {id: req.params.id}}).then( (rowsModified) => {
+        if (rowsModified) {
+            return res.send('ok')
+        } else {
+            return res.status(404).send('Laptop not found')
+        }
+    }).catch( err => {
+        //cold be a foreign key error - employee IOD didn't exist
+        if(err instanceof Sequelize.ForeignKeyConstraintError) {
+            return res.status(500).send('Employee does not exist, unable to assign laptop.')
+        } else {
+            console.log(err)
+            return res.status(500).send('Unable to assign laptop')
+        }
+    })
 })
 
 module.exports = router 
