@@ -102,6 +102,7 @@ export default {
                 })
             }
         }
+    }
         // TODO handle assigning laptop to employee
 
         // TODO handle unassigning laptop
