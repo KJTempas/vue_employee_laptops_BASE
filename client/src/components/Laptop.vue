@@ -57,7 +57,7 @@ export default {
         this.loadData()
     },
     methods:{
-        loadData() {n//gets data from server
+        loadData() {//gets data from server
             // load data for laptop, and list of employees 
             this.$services.laptops.getLaptop(this.id).then(data => {
                 this.laptop = data
