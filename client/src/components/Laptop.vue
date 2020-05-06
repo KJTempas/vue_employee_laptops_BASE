@@ -4,12 +4,13 @@
     <h2>Laptop ID {{ laptop.id }}</h2>
 
    <LaptopForm v-bind:laptop="laptop" v-on:laptopFormSubmit="laptopFormSubmit">
-       Edit</LaptopForm>
+       Edit
+    </LaptopForm>
 
     <hr>
     <!--  show info about which employee this laptop is assigned to  -->
     <h2 v-if="laptop.employeeId">This laptop is assigned to employee
-        <router-link :to="{name: 'employee', params: {id: laptop.employeeId }}">
+        <router-link :to="{ name: 'employee', params: { id: laptop.employeeId }}">
             #{{ laptop.employeeId }}
         </router-link>
     </h2>
@@ -26,7 +27,9 @@
     <!-- buttons to assign/unassign laptop -->
     <hr>
     <button class="btn btn-primary mt-2" v-on:click="updateEmployee">Change employee</button>
+    <br>
     <button class="btn btn-secondary mt-2" v-on:click="unassign">Unassign Laptop</button>
+    <br>
     <!--  delete laptop button -->
     <button class="btn btn-danger mt-3" v-on:click="deleteLaptop"> Delete Laptop </button>
     
@@ -103,9 +106,7 @@ export default {
             }
         }
     }
-        // TODO handle assigning laptop to employee
-
-        // TODO handle unassigning laptop
+        
 
         
 }

@@ -50,7 +50,7 @@ export default {
         }
     },
     methods:{
-        //  handle form submit 
+         
         laptopFormSubmit() {
             let laptopData = {id: this.id, brand: this.brand, model: this.model, serialNumber: this.serialNumber }
 
